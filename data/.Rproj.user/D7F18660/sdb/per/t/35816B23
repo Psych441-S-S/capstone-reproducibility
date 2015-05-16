@@ -1,0 +1,17 @@
+{
+    "contents" : "setwd(\"~/Research/Reproducibility&Stats/data\")\npolitics<-read.csv(\"politics.csv\")\nstr(politics)\nsummary(politics$optimismscore[politics$testtime==\"post\"])\npolitics$subject<-factor(politics$subject)\npolitics$testtime<-factor(politics$testtime, levels=c(\"pre\", \"post\"))\nstr(politics)\t\t\n\nhist(politics$optimismscore[politics$testtime==\"post\"])\ntab<-table(politics$party,politics$sex)\ntab\n\n\nchisq.test(politics$party,politics$sex)\n\n\nt.test(politics$income[politics$sex==\"male\"],politics$income[politics$sex==\"female\"],paired=FALSE,var.equal=FALSE,alternative=\"two.sided\",con.level=.95)\n\n\n\n\nsummary(aov(optimismscore~party*sex,data=politics[politics$testtime==\"post\",]))\n\nlibrary(gplots)\nlibrary(ggplot2)\nlibrary(dplyr)\ntemp<-politics[politics$testtime==\"post\",]%>%group_by(party,sex)%>%\n     summarize(means=mean(optimismscore),sems=sd(optimismscore)/sqrt(length(optimismscore)))\n",
+    "created" : 1431736504746.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1482696499",
+    "id" : "35816B23",
+    "lastKnownWriteTime" : 1431737117,
+    "path" : "~/Research/Reproducibility&Stats/data/assignment.r",
+    "project_path" : "assignment.r",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
