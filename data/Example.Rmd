@@ -34,7 +34,8 @@ Fix any variables that aren't right.
 Let's take a look at the data.
 ```{r}
 str(pols)
-```
+``` 
+
 
 Subject should be a factor variable. Additionally, I prefer
 it when "pre" precedes "post". So I'm going to refactor those
